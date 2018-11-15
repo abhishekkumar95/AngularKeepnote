@@ -1,0 +1,41 @@
+<div fxLayout="column" fxLayoutAlign="center center" >
+    <mat-card class="register-card">
+        <mat-card-header fxLayoutAlign="center center" >
+            <mat-card-title>
+                    <span><b>Register !!!</b></span>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div fxLayout="column" fxLayoutAlign="center center" >
+            <mat-form-field appearance="outline" class="user-name">
+                    <mat-label>User Id</mat-label>
+                    <input matInput placeholder="User Id" [(ngModel)]="userId">
+                    <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="user-name">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" [(ngModel)]="firstName">
+                    <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="user-name">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" [(ngModel)]="lastName">
+                    <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+ 
+            <mat-form-field appearance="outline" class="user-password">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password"  [(ngModel)]="password">
+                    <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+            </div>
+        </mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center center" >
+        <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="onRegister()">Submit</button>
+        </mat-card-actions>
+        </div>
+
+    </mat-card>
+</div>

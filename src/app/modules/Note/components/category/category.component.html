@@ -1,0 +1,32 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Keep-Note Application</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="." *ngFor="let category of categories">
+          <mat-list-item> {{category.categoryName}}</mat-list-item>
+          <mat-divider></mat-divider>
+
+        </a>
+        <button mat-button (click)="openDialog()">
+          <mat-icon>add</mat-icon>New Category</button>
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <app-note [categories]="categories" [singleNote]="note"
+        (allNotes)="allNote($event)"></app-note>
+        <app-display class="card-display" [notes]="notes" (note)="getNote($event)"></app-display>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

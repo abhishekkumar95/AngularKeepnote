@@ -1,0 +1,3 @@
+<div class="note-card" fxLayout="row" fxLayoutAlign="space-around center">
+  <app-card *ngFor="let note of notes" [note]="note" (getNote)="getNote($event)"></app-card>
+</div>

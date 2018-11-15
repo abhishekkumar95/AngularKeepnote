@@ -1,0 +1,56 @@
+<div class="expansion-panel-wrapper">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="setStep(0)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <b>
+            <i>Take a note...</i>
+          </b>
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>assignment</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Title" [(ngModel)]="title">
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Content" [(ngModel)]="content"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-between start">
+
+        <mat-form-field>
+          <mat-select placeholder="Category">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              <button mat-button (click)="setCategory(category)"> {{category.categoryName}}</button>
+
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-icon-button matTooltip="reminders" [matMenuTriggerFor]="menu">
+          <mat-icon>add_alert </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false" xPosition="after">
+          <button *ngFor="let reminder of reminders" mat-menu-item (click)="addChip(reminder)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            {{reminder.reminderName}}
+          </button>
+        </mat-menu>
+
+        <mat-chip-list>
+          <mat-chip *ngFor="let chip of chips">{{chip.reminderName}}</mat-chip>
+        </mat-chip-list>
+
+      </div>
+
+      <mat-action-row>
+        <button mat-raised-button color="primary" (click)=" nextStep(); addNote()">Add</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>
